@@ -1,8 +1,7 @@
 # DFM-Answers-Client
-The client side version of my DrFrostMaths.com answer script. It is written in js so can be run in the browser without leaving DFM and you don't need to enter your login details like some other versions make you.
-See more at https://atrika.herokuapp.com/  
+The client side version of my DrFrostMaths.com answer script. It is written in js so can be run in the browser without leaving DFM.
   
-Use by copy pasting the contents of script.min.js into the URL section of a bookmark. When you are on a DFM question, click the bookmark and it will get the answers
+Use by copy pasting the contents of script.min.js into the URL section of a bookmark. When you are on a DFM question, click the bookmark and it will get the answers.
 
 # Known Issues
-- Automattically typing doesn't work on certain types of questions, this is because it uses a 3rd party script to display maths symbols instead of html input box. There probably is a way but I'm not aware of a plausable way to do it.
+- Working on autotyping all types
