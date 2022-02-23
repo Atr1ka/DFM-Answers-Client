@@ -1,7 +1,22 @@
 //hi
+function main() {
+    submit(JSON.stringify(question));
+}
+
 function type(nameVal, text) {
     $('input[name=' + nameVal + ']').val(text);
 }
+
+function typeMQ(text) {
+    let mathField = MathQuill.MathField($('#expression-answer')[0]);
+    mathField.write(text);
+}
+function typeCoords(text) {
+    MathQuill = MathQuill.getInterface(1);
+    let mathField = MathQuill.MathField($('.expression-answer-x mq-editable-field mq-math-mode')[0]);
+    mathField.write(text);
+}
+// expression-answer-x mq-editable-field mq-math-mode
 function cleanJSON(og) {
     let out = "";
     for (i=0;i<og.length;++i) {
@@ -18,7 +33,7 @@ function cleanJSON(og) {
 function submit(str) {
     $.ajax({
         type: "POST",
-        url: "https://dfm-answers.herokuapp.com/api/world",
+        url: "https://atrika.herokuapp.com/api/world",
         contentType:"application/json",
         processData: false,
         cache: false,
@@ -29,7 +44,8 @@ function submit(str) {
             console.log(data);
             if (data.typeCount == 0)
                 alert(data.alertString);
-            else {
+            else {                   
+                MathQuill = MathQuill.getInterface(1);
                 for (i=0;i<data.typeCount;++i) {
                     type(data.toType[i].nameVal, data.toType[i].text);
                 }
@@ -40,4 +56,5 @@ function submit(str) {
       }
    });
 }
-submit(JSON.stringify(question));
+
+main();
