@@ -45,6 +45,9 @@ function type(type, text, pos, sign='=') {
             mathField.latex("");
             mathField.write(text);
             break;
+        case 'list': 
+            $('input[name="list-answer"]').val(text)
+            break;
     }
 }
 
