@@ -40,7 +40,7 @@ function type(type, text, pos, sign='=') {
             mathField.latex("");
             mathField.write(text);
             break;
-        case 'standardform': 
+        case 'stdform': 
             mathField = MathQuill.MathField($('.expression-answer-' + pos)[0]);
             mathField.latex("");
             mathField.write(text);

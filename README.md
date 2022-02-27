@@ -7,5 +7,4 @@ Use by copy pasting the contents of script.min.js into the URL section of a book
 - desmos (drawing graphs etc)
 - shape (drawing plans of 3d shapes etc)
 - ordered (i think thats for like dragging values to the right order)
-- standard form (easy, will do soon)
 - list (eg listing factors i think)
