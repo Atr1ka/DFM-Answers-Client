@@ -1,4 +1,3 @@
-//hi
 function main() {
     submit(JSON.stringify(question));
 }
@@ -11,6 +10,7 @@ function typeMQ(text) {
     let mathField = MathQuill.MathField($('#expression-answer')[0]);
     mathField.write(text);
 }
+
 function typeCoords(text) {
     MathQuill = MathQuill.getInterface(1);
     let mathField = MathQuill.MathField($('.expression-answer-x mq-editable-field mq-math-mode')[0]);
@@ -29,7 +29,7 @@ function cleanJSON(og) {
     }
     return out;
 }
-
+ 
 function submit(str) {
     $.ajax({
         type: "POST",
@@ -45,7 +45,7 @@ function submit(str) {
             if (data.typeCount == 0)
                 alert(data.alertString);
             else {                   
-                MathQuill = MathQuill.getInterface(1);
+                //MathQuill = MathQuill.getInterface(1);
                 for (i=0;i<data.typeCount;++i) {
                     type(data.toType[i].nameVal, data.toType[i].text);
                 }
