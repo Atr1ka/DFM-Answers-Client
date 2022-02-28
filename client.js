@@ -46,7 +46,19 @@ function type(type, text, pos, sign='=') {
             mathField.write(text);
             break;
         case 'list': 
-            $('input[name="list-answer"]').val(text)
+            $('input[name="list-answer"]').val(text);
+            break;
+        case 'ordered': 
+            // need to invert the array to work with the method i found
+            // by invert I mean the new array is [index of number 1 in original array, index of number 2 in original array...]
+            let invAns = [];
+            for (let i=0;i<text.length;++i) {
+                invAns[i] = text.indexOf(i+1);
+            }
+            $("#question-form-1").find(".answer-content").children().each(function(i){
+                $(this).data("order", invAns[i]+1);
+             });
+            alert("For these type of questions, it has worked and your answer will be marked correct but it will not move the items around on screen due to how it is written.")
             break;
     }
 }
