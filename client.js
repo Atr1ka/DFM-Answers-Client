@@ -60,6 +60,10 @@ function type(type, text, pos, sign='=') {
              });
             alert("For these type of questions, it has worked and your answer will be marked correct but it will not move the items around on screen due to how it is written.")
             break;
+        case 'shape':
+            $(".question-canvas").data("tempShape", text);
+            $(".question-canvas").dfmCanvas("finishDrawing");
+            break;
     }
 }
 
