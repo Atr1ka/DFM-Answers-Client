@@ -5,4 +5,3 @@ Use by copy pasting the contents of script.min.js into the URL section of a book
 
 # Answer Types not implimented
 - desmos (drawing graphs etc)
-- the shape type, according to the dfm code, has polygon, rectangle, line, and multiline subtypes but I can only find examples of polygon so if you find a different one it might not work.

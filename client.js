@@ -28,13 +28,13 @@ function type(alertString, type, text, pos, sign='=') {
             mathField.write(text);
             break;
         case 'fraction':
-                try {
-                    $('input[name=' + pos + ']').val(text);
-                }
-                catch(e) {
-                    alert(alertString);
-                }
-                break;
+            try {
+                $('input[name=' + pos + ']').val(text);
+            }
+            catch(e) {
+                alert(alertString);
+            }
+            break;
         case 'mcq':
             $('input:radio[name="multiplechoice-answer[]"][value="' + text + '"]').attr('checked',true);
             break;
@@ -67,6 +67,11 @@ function type(alertString, type, text, pos, sign='=') {
             $(".question-canvas").data("tempShape", text);
             $(".question-canvas").dfmCanvas("finishDrawing");
             break;
+        case 'ratio':
+            $(".answer-content").find(".expression-answer-ratio").each(function(i){
+                $(this).algebraicInput("latex", text[i]);
+           })
+           break;
     }
 }
 
