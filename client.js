@@ -2,7 +2,7 @@ function main() {
     submit(JSON.stringify(question));
 }
 
-function type(type, text, pos, sign='=') {
+function type(alertString, type, text, pos, sign='=') {
     if (typeof mathField === 'undefined') var mathField;
     switch (type) {
         case 'input':
@@ -27,11 +27,14 @@ function type(type, text, pos, sign='=') {
             mathField.latex("");
             mathField.write(text);
             break;
-        case 'frac':
-            mathField = MathQuill.MathField($('#expression-answer')[0]);
-            mathField.latex("");
-            mathField.write(text);
-            break;
+        case 'fraction':
+                try {
+                    $('input[name=' + pos + ']').val(text);
+                }
+                catch(e) {
+                    alert(alertString);
+                }
+                break;
         case 'mcq':
             $('input:radio[name="multiplechoice-answer[]"][value="' + text + '"]').attr('checked',true);
             break;
@@ -106,7 +109,7 @@ function submit(str) {
                 if (question.answer.type === 'multiplechoice')
                     clearMQC();
                 for (i=0;i<data.typeCount;++i) {
-                    type(data.toType[i].type, data.toType[i].text, data.toType[i].pos, data.toType[i].sign);
+                    type(data.alertSting, data.toType[i].type, data.toType[i].text, data.toType[i].pos, data.toType[i].sign);
                 }
             }
         },
