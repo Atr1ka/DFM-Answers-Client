@@ -190,10 +190,10 @@ function dfmLive(mode, delay) {
                 ans = msg.question.answer.correctAnswer[0][acc];
             }       
             else if (msg.question.answer.type === "textual") {
-                ans = [""];
+                ans = [];
                 for (e of msg.question.answer.correctAnswer) {
                     let temp = e.split(" OR ");
-                    ans[0]+=temp[0] + " ";
+                    ans.push(temp[0]);
                 }
             }
             else {
@@ -323,10 +323,10 @@ function dfmLive(mode, delay) {
             ans = question.answer.correctAnswer[0][acc];
         } 
         else if (question.answer.type === "textual") {
-            ans = [""];
+            ans = [];
             for (e of msg.question.answer.correctAnswer) {
                 let temp = e.split(" OR ");
-                ans[0]+=temp[0] + " ";
+                ans.push(temp[0]);
             }
         }
         else {
